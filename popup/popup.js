@@ -1,4 +1,18 @@
-document.addEventListener("DOMContentLoaded", function () {
+/**
+ * France Travail Extension - Popup Script
+ * 
+ * Handles the extension's popup interface for token configuration.
+ * 
+ * Features:
+ * - Token input and validation
+ * - Secure storage of authentication tokens
+ * - User feedback for save operations
+ * 
+ * @author hollitizz
+ * @version 1.0
+ */
+
+document.addEventListener('DOMContentLoaded', function() {
   const tokenInput = document.getElementById("token");
   const saveButton = document.getElementById("saveToken");
 

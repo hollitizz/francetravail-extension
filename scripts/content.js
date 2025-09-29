@@ -1,7 +1,24 @@
 function extractOffer() {
   let hostname = location.hostname;
 
-  if (hostname.includes("hellowork.com")) {
+  /**
+ * France Travail Extension - Content Script
+ * 
+ * This script injects a floating UI element on supported job sites
+ * that allows users to quickly submit job applications to France Travail.
+ * 
+ * Features:
+ * - Floating action button with expand/collapse functionality
+ * - Form for entering company name and job title
+ * - Real-time status updates (loading, success, error)
+ * - Automatic cleanup after successful submission
+ * 
+ * @author hollitizz
+ * @version 1.0
+ */
+
+// Only run on specific domains
+if (window.location.hostname === "www.hellowork.com") {
     return {
       enterprise:
         document.querySelector(

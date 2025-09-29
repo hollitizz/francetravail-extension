@@ -1,6 +1,27 @@
+/**
+ * France Travail Extension - Background Script
+ * 
+ * This service worker handles:
+ * - API communication with France Travail
+ * - Secure token storage
+ * - Message passing between content scripts and popup
+ * 
+ * @author hollitizz
+ * @version 1.0
+ */
+
+/**
+ * Main message listener for handling communication between content scripts and popup
+ * 
+ * Supported actions:
+ * - getToken: Retrieve stored authentication token
+ * - saveToken: Store authentication token securely
+ * - submitOffer: Submit job application to France Travail API
+ */
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   console.log("Background received message:", message);
 
+  // Handle token retrieval requests
   if (message.action === "getToken") {
     chrome.storage.local.get("ft_token", (data) => {
       console.log(
@@ -9,14 +30,15 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       );
       sendResponse({ token: data.ft_token });
     });
-    return true;
+    return true; // Keep message channel open for async response
   }
 
+  // Handle token storage requests
   if (message.action === "saveToken") {
     chrome.storage.local.set({ ft_token: message.token }, () => {
       sendResponse({ success: true });
     });
-    return true;
+    return true; // Keep message channel open for async response
   }
 
   if (message.action === "submitOffer") {
