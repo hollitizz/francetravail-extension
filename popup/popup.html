@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>France Travail Export</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 10px;
+        width: 300px;
+      }
+
+      div.form {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      div.form > input {
+        flex: 1;
+        margin: 5px 0;
+        padding: 5px;
+      }
+
+      div.form > button {
+        width: 300px;
+        padding: 5px;
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>France Travail Extension</h3>
+    <p>Coller votre token d'authentification :</p>
+    <div class="form">
+      <input id="token" placeholder="Bearer XXXXX" />
+      <button id="saveToken">Sauvegarder Token</button>
+    </div>
+
+    <div style="margin-top: 15px; font-size: 12px; color: #666">
+      <p><strong>Comment obtenir le token :</strong></p>
+      <ol style="margin: 5px 0; padding-left: 20px">
+        <li>Allez sur candidat.francetravail.fr</li>
+        <li>Connectez-vous</li>
+        <li>Ouvrez F12 -> Network</li>
+        <li>Cherchez "Authorization: Bearer"</li>
+        <li>Copiez le token</li>
+      </ol>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

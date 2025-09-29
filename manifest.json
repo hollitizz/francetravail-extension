@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Export Offre France Travail",
+  "version": "1.0",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["activeTab", "scripting", "storage"],
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.hellowork.com/fr-fr/emplois/*",
+        "https://www.welcometothejungle.com/fr/companies/*/jobs/*"
+      ],
+      "js": ["scripts/content.js"],
+      "css": ["style.css"]
+    }
+  ],
+  "host_permissions": ["https://api.francetravail.fr/*"],
+  "icons": {
+    "16": "images/logo-16.png",
+    "32": "images/logo-32.png",
+    "48": "images/logo-48.png",
+    "128": "images/logo-128.png"
+  }
+}
